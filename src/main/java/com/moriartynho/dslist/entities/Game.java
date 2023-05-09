@@ -36,6 +36,10 @@ public class Game implements Serializable {
 	public Long getId() {
 		return id;
 	}
+	
+	public Game() {
+		
+	}
 
 	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
 			String shortDescription, String longDescription) {
