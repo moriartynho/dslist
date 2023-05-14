@@ -37,5 +37,9 @@ public class GameService {
 		List<GameMinDTO> dto = games.stream().map(x -> new GameMinDTO(x)).toList();
 		return dto;
 	}
+
+	public Game fromDTO(GameDTO gameDTO) {
+		return new Game(null, gameDTO.getTitle(),gameDTO.getYear(), gameDTO.getGenre(),gameDTO.getPlatforms(),gameDTO.getScore(), gameDTO.getImgUrl(), gameDTO.getShortDescription(),gameDTO.getLongDescription());
+	}
 	
 }
