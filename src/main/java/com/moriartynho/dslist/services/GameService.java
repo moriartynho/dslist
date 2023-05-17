@@ -43,5 +43,4 @@ public class GameService {
 				gameDTO.getScore(), gameDTO.getImgUrl(), gameDTO.getShortDescription(), gameDTO.getLongDescription());
 
 	}
-
 }

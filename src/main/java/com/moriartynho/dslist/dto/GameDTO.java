@@ -4,16 +4,25 @@ import org.springframework.beans.BeanUtils;
 
 import com.moriartynho.dslist.entities.Game;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class GameDTO {
 
 	private Long id;
+	@NotBlank
 	private String title;
+	@NotBlank
 	private Integer year;
+	@NotBlank
 	private String genre;
+	@NotBlank
 	private String platforms;
 	private Double score;
+	@NotBlank
 	private String imgUrl;
+	@NotBlank
 	private String shortDescription;
+	@NotBlank
 	private String longDescription;
 
 	public GameDTO() {

@@ -43,7 +43,6 @@ public class GameController {
 	Game insert(@RequestBody GameDTO gameDTO){
 		Game obj = gameService.fromDTO(gameDTO);
 		return gameRepository.save(obj);
-
 	}
 
 }
