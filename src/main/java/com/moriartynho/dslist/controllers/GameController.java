@@ -40,7 +40,7 @@ public class GameController {
 	}
 	
 	@PostMapping
-	public Game insert(@RequestBody GameDTO gameDTO){
+	Game insert(@RequestBody GameDTO gameDTO){
 		Game obj = gameService.fromDTO(gameDTO);
 		return gameRepository.save(obj);
 	}

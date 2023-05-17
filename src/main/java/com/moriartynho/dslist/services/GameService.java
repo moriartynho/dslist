@@ -16,30 +16,31 @@ public class GameService {
 
 	@Autowired
 	private GameRepository gameRepository;
-	
+
 	@org.springframework.transaction.annotation.Transactional(readOnly = true)
-	public List<GameMinDTO> findAll(){
+	public List<GameMinDTO> findAll() {
 		List<Game> games = gameRepository.findAll();
 		List<GameMinDTO> dto = games.stream().map(x -> new GameMinDTO(x)).toList();
 		return dto;
 	}
-	
+
 	@org.springframework.transaction.annotation.Transactional(readOnly = true)
 	public GameDTO findById(Long id) {
 		Game game = gameRepository.findById(id).get();
 		GameDTO gameDTO = new GameDTO(game);
 		return gameDTO;
 	}
-	
+
 	@org.springframework.transaction.annotation.Transactional(readOnly = true)
-	public List<GameMinDTO> findByList(Long listId){
+	public List<GameMinDTO> findByList(Long listId) {
 		List<GameMinProjection> games = gameRepository.searchByList(listId);
 		List<GameMinDTO> dto = games.stream().map(x -> new GameMinDTO(x)).toList();
 		return dto;
 	}
 
 	public Game fromDTO(GameDTO gameDTO) {
-		return new Game(null, gameDTO.getTitle(),gameDTO.getYear(), gameDTO.getGenre(),gameDTO.getPlatforms(),gameDTO.getScore(), gameDTO.getImgUrl(), gameDTO.getShortDescription(),gameDTO.getLongDescription());
+		return new Game(null, gameDTO.getTitle(), gameDTO.getYear(), gameDTO.getGenre(), gameDTO.getPlatforms(),
+				gameDTO.getScore(), gameDTO.getImgUrl(), gameDTO.getShortDescription(), gameDTO.getLongDescription());
+
 	}
-	
 }
