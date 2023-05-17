@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moriartynho.dslist.dto.GameDTO;
@@ -40,10 +39,10 @@ public class GameController {
 		return gameService.findById(id);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	Game insert(@RequestBody Game game){
-		return gameRepository.save(game);
-		
+	@PostMapping
+	public Game insert(@RequestBody GameDTO gameDTO){
+		Game obj = gameService.fromDTO(gameDTO);
+		return gameRepository.save(obj);
 	}
 
 }
